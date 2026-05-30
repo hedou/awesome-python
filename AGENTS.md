@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 ## Repository Overview
 
@@ -10,16 +10,16 @@ An opinionated list of Python frameworks, libraries, tools, and resources. Publi
 
 ## Structure
 
-- **README.md**: Source of truth. Hierarchical categories with alphabetically ordered entries.
+- **README.md**: Source of truth for catalog entries and README sponsor placements. Hierarchical categories with alphabetically ordered entries.
 - **CONTRIBUTING.md**: Submission guidelines and review criteria.
-- **SPONSORSHIP.md**: Sponsor tiers, placement rules, and the editorial-independence policy. Sponsor content sits in the README header and must never influence which projects get listed.
+- **SPONSORSHIP.md**: Sponsor tiers, placement rules, and the editorial-independence policy. `website/templates/sponsorship.html` separately defines which sponsorship content appears on the published website page.
 - **website/**: Static site generator that builds awesome-python.com from README.md.
   - `build.py`: Parses README.md and renders HTML via Jinja2 templates.
   - `fetch_github_stars.py`: Fetches star counts into `website/data/`.
   - `readme_parser.py`: Markdown-to-structured-data parser.
   - `templates/`, `static/`: Jinja2 templates and CSS/JS assets.
   - `tests/`: Pytest tests for the build pipeline.
-- **Makefile**: `make install`, `make build`, `make preview`, `make test`, `make fetch_github_stars`.
+- **Makefile**: `make install`, `make build`, `make preview`, `make test`, `make lint`, `make format`, `make typecheck`, `make fetch_github_stars`.
 - **pyproject.toml**: Uses `uv` for dependency management. Python >=3.13.
 
 ## Key Rules
@@ -28,4 +28,4 @@ An opinionated list of Python frameworks, libraries, tools, and resources. Publi
 - Quality over quantity. Only "awesome" projects.
 - One project per PR.
 - One entry per commit when adding or deleting entries. Format, wording, or categorization changes across multiple entries may be bundled in a single commit.
-- README.md is the single source of content truth.
+- README.md is the source of truth for catalog entries and README sponsor placements; treat `SPONSORSHIP.md` and `website/templates/sponsorship.html` as separate sponsorship content surfaces.
